@@ -1,38 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<html lang="en" xmlns:th = "http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+    <title>Sign Up</title>
 </head>
 <body>
+<form method = 'post' th:action="@{/user}">
+    <label>
+        Username:
+        <input type = 'text' th:field="${user.username}">
+        <p class="error" th:errors="${user.username}"></p>
 
-<form method="post" action="user/add">
-    <div th:if="${error}" style="color:red;" th:text="${error}"></div>
-    <div>
-        <label>userName
-            <input type="text" name="userName">
-        </label>
-    </div>
-    <div>
-        <label>email
-            <input type="email" name="email">
-        </label>
-    </div>
-    <div>
-        <label>password
-            <input type="password" name="password">
-        </label>
-    </div>
-    <div>
-        <label>verify
-            <input type="password" name="verify">
-        </label>
-    </div>
-    <div>
-        <label>
-            <input type="submit" value="Create User">
-        </label>
-    </div>
+    </label>
+
+    <label>
+        Email:
+        <input type = 'email' th:field="${user.email}">
+        <p class="error" th:errors="${user.email}"></p>
+
+    </label>
+
+    <label>
+        Password:
+        <input type = 'password' th:field="${user.password}">
+        <p class="error" th:errors="${user.password}"></p>
+    </label>
+
+    <label>
+        Verify Password:
+        <input type = 'password' th:field="${user.verifyPassword}">
+        <p class="error" th:errors="${user.verifyPassword}"></p>
+    </label>
+
+    <p th:text="${error}"></p>
+
+    <input type = 'submit' value = 'Sign Up'>
 </form>
+
 </body>
 </html>

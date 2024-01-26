@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<html lang="en" xmlns:th = "http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
-    <title>After Post</title>
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+    <title>Welcome</title>
 </head>
 <body>
-
-<a th:href="@{/}">Go back to home</a>
-<h1>See what happens</h1>
+<p th:text = "'Welcome ' + ${user.username} + '!'"></p>
+<a th:href="@{/}">
+    Select your spa services here
+</a>
 </body>
 </html>
